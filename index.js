@@ -16,6 +16,7 @@ for (let i = 0; i < grid_size; i++) {
     for (let j = 0; j < grid_size; j++) {
         const tile = document.createElement("div");
         tile.className = "tile";
+        tile.addEventListener("mouseenter", colorTile);
         row.appendChild(tile);
     }
 
@@ -34,4 +35,10 @@ function inputGridSize() {
     } while (isNaN(input) || input < MIN_SIZE || input > MAX_SIZE);
 
     return input;
+}
+
+function colorTile(event) {
+    const tile = event.target;
+    if (!tile.classList.contains("tile-colored"))
+        tile.classList.add("tile-colored");
 }

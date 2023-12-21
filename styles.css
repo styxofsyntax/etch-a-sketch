@@ -1,3 +1,7 @@
+body {
+    background-color: palegoldenrod;
+}
+
 h1 {
     text-align: center;
 }
@@ -13,6 +17,7 @@ h1 {
     width: 800px;
     height: 800px;
     border: 1px black solid;
+    border-radius: 5px;
 }
 
 .tileRow {
@@ -23,4 +28,9 @@ h1 {
 .tile {
     border: 1px solid black;
     flex-grow: 1;
+    background-color: whitesmoke;
+}
+
+.tile-colored {
+    background-color: seagreen;
 }
