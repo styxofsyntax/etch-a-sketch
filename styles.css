@@ -1,23 +1,67 @@
 body {
     background-color: palegoldenrod;
+    min-width: 900px;
 }
 
 h1 {
+    font-family: "Rubik Doodle Shadow";
     text-align: center;
 }
 
 .container {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
 
 .grid-border {
     display: flex;
     flex-direction: column;
-    width: 800px;
-    height: 800px;
+    height: 700px;
     border: 1px black solid;
-    border-radius: 5px;
+    border-radius: 2px;
+}
+
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    margin: 8px 0px;
+}
+
+#reset-button,
+#grid-size {
+    margin: 0 8px;
+    width: 120px;
+    height: 40px;
+    border: 2px black solid;
+    border-radius: 4px;
+    padding: 0;
+    font-size: 14px;
+    /* the button element and span element provided the same dimensions were not displayed with equal dimensions
+     * box-sizing fixes the issue by including padding and border in specified width and height
+     */
+    box-sizing: border-box;
+}
+
+#reset-button {
+    background-color: lightseagreen;
+}
+
+#reset-button:hover {
+    opacity: 85%;
+    cursor: pointer;
+}
+
+.grid-border,
+.top-bar {
+    width: 700px;
+}
+
+#grid-size {
+    background-color: lightcoral;
+    text-align: center;
+    /* vertically centered */
+    line-height: 40px;
 }
 
 .tileRow {
@@ -26,7 +70,7 @@ h1 {
 }
 
 .tile {
-    border: 1px solid black;
+    border: 1px black solid;
     flex-grow: 1;
     background-color: whitesmoke;
 }
