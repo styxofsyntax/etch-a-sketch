@@ -7,7 +7,7 @@ const grid_border = document.createElement("div");
 const MIN_SIZE = 2;
 const MAX_SIZE = 100;
 let current_size = 16
-
+let pendown = false;
 
 grid_border.className = "grid-border";
 container.appendChild(grid_border);
@@ -24,6 +24,18 @@ clear_button.addEventListener("click", () => {
     createGrid(current_size);
 });
 
+grid_border.addEventListener("mouseover", handleTileInteraction);
+
+grid_border.addEventListener("mousedown", (event) => {
+    pendown = true;
+    handleTileInteraction(event);
+});
+
+document.addEventListener("mouseup", () => {
+    if (pendown)
+        pendown = false;
+});
+
 function createGrid(grid_size) {
     let rows = [];
 
@@ -36,7 +48,6 @@ function createGrid(grid_size) {
         for (let j = 0; j < grid_size; j++) {
             const tile = document.createElement("div");
             tile.className = "tile";
-            tile.addEventListener("mouseenter", colorTile);
             row.appendChild(tile);
         }
 
@@ -60,8 +71,14 @@ function inputGridSize() {
     return input;
 }
 
-function colorTile(event) {
-    const tile = event.target;
+function colorTile(tile) {
     if (!tile.classList.contains("tile-colored"))
         tile.classList.add("tile-colored");
+}
+
+function handleTileInteraction(event) {
+    event.preventDefault();
+    elem = event.target;
+    if (elem.classList.contains("tile") && pendown)
+        colorTile(elem);
 }
