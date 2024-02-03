@@ -1,27 +1,34 @@
 const container = document.querySelector(".container");
 const grid_size_indicator = document.querySelector("#grid-size");
-const reset_button = document.querySelector("#reset-button");
+const new_button = document.querySelector("#new-button");
+const clear_button = document.querySelector("#clear-button");
 const grid_border = document.createElement("div");
 
 const MIN_SIZE = 2;
 const MAX_SIZE = 100;
-const DEFAULT_SIZE = 16;
+let current_size = 16
 
 
 grid_border.className = "grid-border";
 container.appendChild(grid_border);
 
-createGrid(DEFAULT_SIZE);
+createGrid(current_size);
 
-reset_button.addEventListener("click", () => {
+new_button.addEventListener("click", () => {
     let grid_size = inputGridSize();
-    createGrid(grid_size);
+    if (grid_size !== null)
+        createGrid(grid_size);
+});
+
+clear_button.addEventListener("click", () => {
+    createGrid(current_size);
 });
 
 function createGrid(grid_size) {
     let rows = [];
 
     grid_size_indicator.textContent = `Grid Size: ${grid_size}`;
+    current_size = grid_size;
     for (let i = 0; i < grid_size; i++) {
         const row = document.createElement("div");
         row.className = "tileRow"
@@ -45,7 +52,7 @@ function inputGridSize() {
     do {
         input = prompt(`Enter the grid size (${MIN_SIZE}-${MAX_SIZE})`);
         if (input === null) // if cancel is pressed
-            return DEFAULT_SIZE;
+            break;
 
         input = parseInt(input);
     } while (isNaN(input) || input < MIN_SIZE || input > MAX_SIZE);

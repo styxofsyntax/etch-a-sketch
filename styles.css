@@ -28,7 +28,8 @@ h1 {
     margin: 8px 0px;
 }
 
-#reset-button,
+#new-button,
+#clear-button,
 #grid-size {
     margin: 0 8px;
     width: 120px;
@@ -43,11 +44,12 @@ h1 {
     box-sizing: border-box;
 }
 
-#reset-button {
+#new-button {
     background-color: lightseagreen;
 }
 
-#reset-button:hover {
+#new-button:hover,
+#clear-button:hover {
     opacity: 85%;
     cursor: pointer;
 }
