@@ -14,15 +14,26 @@
 <body>
     <h1>Etch-A-Sketch</h1>
 
-    <div class="container">
-        <div class="top-bar">
-            <div class="left-side">
-                <button id="new-button">New</button>
-                <button id="clear-button">Clear</button>
-            </div>
-            <span id="grid-size"></span>
+    <div class="top-bar">
+        <div class="left-side">
+            <button id="new-button">New</button>
+            <button id="clear-button">Clear</button>
         </div>
+        <span id="grid-size" select disabled></span>
     </div>
+
+    <div class="container">
+        <div class="left-container">
+            <button class="mode-button" id="brush">Brush</button>
+            <button class="mode-button" id="pen">Pen</button>
+            <button class="mode-button" id="rainbow">Rainbow</button>
+            <button class="mode-button" id="eraser">Eraser</button>
+        </div>
+        <div class="middle-container">
+        </div>
+        <div class="right-container"></div>
+    </div>
+
 </body>
 
 </html>

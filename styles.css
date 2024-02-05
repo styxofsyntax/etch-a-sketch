@@ -10,30 +10,66 @@ h1 {
 
 .container {
     display: flex;
+}
+
+.left-container,
+.middle-container,
+.right-container {
+    flex: 1;
+}
+
+.left-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.middle-container {
+    display: flex;
     flex-direction: column;
     align-items: center;
 }
 
 .grid-border {
+    background-color: whitesmoke;
     display: flex;
     flex-direction: column;
     height: 700px;
-    border: 1px black solid;
+    border: 1px rgba(0, 0, 0, 0.383) solid;
     border-radius: 2px;
 }
 
+.grid-border,
 .top-bar {
+    width: 700px;
+}
+
+.top-bar {
+    align-self: center;
     display: flex;
     justify-content: space-between;
-    margin: 8px 0px;
+    margin: 8px auto;
+    /* such that padding does not increase the width of div */
+    box-sizing: border-box;
+    padding: 0 8px;
+}
+
+#grid-size,
+h1 {
+    user-select: none;
 }
 
 #new-button,
 #clear-button,
 #grid-size {
-    margin: 0 8px;
     width: 120px;
     height: 40px;
+}
+
+#new-button,
+#clear-button,
+#grid-size,
+.left-container button {
     border: 2px black solid;
     border-radius: 4px;
     padding: 0;
@@ -44,19 +80,19 @@ h1 {
     box-sizing: border-box;
 }
 
+.left-container button {
+    width: 60px;
+    height: 40px;
+    margin: 2px 8px;
+}
+
 #new-button {
     background-color: lightseagreen;
 }
 
-#new-button:hover,
-#clear-button:hover {
+button {
     opacity: 85%;
     cursor: pointer;
-}
-
-.grid-border,
-.top-bar {
-    width: 700px;
 }
 
 #grid-size {
@@ -72,11 +108,11 @@ h1 {
 }
 
 .tile {
-    border: 1px black solid;
+    border: 1px rgba(0, 0, 0, 0.383) solid;
     flex-grow: 1;
     background-color: whitesmoke;
 }
 
-.tile-colored {
-    background-color: seagreen;
+.selected-mode-button {
+    background-color: rgb(92, 127, 191);
 }
